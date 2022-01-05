@@ -23,21 +23,21 @@ function stopwatch() {
     }
 
     if (seconds < 10) {
-        displaySecond = "0" + seconds.toString();
+        displaySecond = "0" + seconds;
     }
     else {
         displaySecond = seconds;
     }
 
     if (minutes < 10) {
-        displayMinutes = "0" + minutes.toString();
+        displayMinutes = "0" + minutes;
     }
     else {
         displayMinutes = minutes;
     }
 
     if (hours < 10) {
-        displayHours = "0" + hours.toString();
+        displayHours = "0" + hours;
     }
     else {
         displayHours = hours;
@@ -49,16 +49,15 @@ function stopwatch() {
 
 
 function start() {
-    if (action == "stopped") {
-
-        interval = setInterval(stopwatch, 1000)
-        document.getElementById("startStop").innerHTML = "Stop"
+    if (action === "stopped") {
+        interval = setInterval(stopwatch, 1000);
+        document.getElementById("startStop").innerHTML = "Stop";
         action = "started";
     }
     else {
-        interval = clearInterval(interval)
-        document.getElementById("reset").innerHTML = "Start"
-        status = "Stop";
+        window.clearInterval(interval);
+        document.getElementById("startStop").innerHTML = "Start";
+        action = "stopped";
     }
 }
 
